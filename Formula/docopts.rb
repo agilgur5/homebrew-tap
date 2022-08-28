@@ -14,8 +14,7 @@ class Docopts < Formula
     system "go", "get", "github.com/docopt/docopt-go"
     system "go", "build", "docopts.go"
     bin.install "docopts" # no bottle yet as this a third-party tap
-    prefix.install_metafiles
-    prefix.install "docopts.sh" # helper functions, meant to be sourced
+    share.install "docopts.sh" # helper functions, meant to be sourced
   end
 
   test do
