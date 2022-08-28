@@ -12,10 +12,6 @@ class Goenv < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, monterey: "5ebf7f8a41fb6b283af2da8a1bcd2079a090d92eaa2c4ba30738d415d6838906"
-  end
-
   def install
     inreplace_files = [
       "libexec/goenv",
