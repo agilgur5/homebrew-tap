@@ -9,6 +9,9 @@ class Docopts < Formula
   depends_on "go" => :build
 
   def install
+    # go mod init + go get b/c 0.6.4 doesn't use Go modules yet (see also my PR: https://github.com/docopt/docopts/pull/65)
+    system "go", "mod", "init", "github.com/docopt/docopts"
+    system "go", "get", "github.com/docopt/docopt-go"
     system "go", "build", "docopts.go"
     prefix.install_metafiles
     prefix.install "docopts.sh" # helper functions, meant to be sourced
